@@ -79,6 +79,7 @@ dam_list_check <- dam_stationlist %>%
   arrange(desc(count))
 dam_list_check
 
+# Dam Station Ids are duplicated, reduce duplication
 unique_station_id_list <- dam_stationlist %>% 
   distinct(station_id, .keep_all = TRUE)
 nrow(unique_station_id_list) # 561
@@ -95,6 +96,7 @@ head(water_stn)
 water_stn$station_url <- NULL
 head(water_stn)
 water_stn$lng.x <- NULL
+save(water_stn, file="data/HPT/bom_water_damstn_org.RData")
 
 # Merge with SA4 Data
 water_stn$territory_sa4 <- ASGS::latlon2SA(water_stn$lat.y, water_stn$lng.y, to = "SA4", yr = "2016")
@@ -176,4 +178,10 @@ missing_check_water_unemp <- water_unemployment %>%
   filter(is.na(waterlevel_mean)) %>% 
   group_by(territory_sa4) %>% 
   summarise(missing_count = n(), max_date= max(date), min_date=min(date))
+
 write.csv(missing_check_water_unemp, file="data/HPT/missing_check_water_unemp.csv")
+
+
+
+
+

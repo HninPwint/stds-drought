@@ -108,7 +108,7 @@ pure_sa4_list <- unemployment %>%
   select(territory_sa4) %>% 
   distinct()
 pure_sa4_list # 87 
-# Check the missing 
+# Check count of stations in each SA4 to identify the SA4 with no Station 
 lookup_missing <- pure_sa4_list %>% 
   left_join(terr_stn_count, by=c("territory_sa4"= "territory_sa4"))
 View(lookup_missing)
