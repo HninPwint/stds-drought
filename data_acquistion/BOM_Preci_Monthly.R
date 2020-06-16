@@ -96,7 +96,7 @@ sum(is.na(precp_sa4$precp)) # zero missing
 unique(precp_sa4$territory_sa4) 
 unique(unemployment$territory_sa4)
 unemployment$territory_sa4 <- str_trim(unemployment$territory_sa4, side="both")
-save("precp_sa4", file="data/precp_sa4.RData")
+save("precp_sa4", file="data/HPT/precp_sa4.RData")
 
 
 # To Check are there any terriorities which has more than one station, count stn Id by terriority

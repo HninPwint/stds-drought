@@ -181,7 +181,6 @@ missing_check_water_unemp <- water_unemployment %>%
 
 write.csv(missing_check_water_unemp, file="data/HPT/missing_check_water_unemp.csv")
 
-
-
+load("./data/HPT/precp_sa4.RData")
 
 
